@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="heading">
+    <h1 class="title">{{title}}</h1>
+    <div class="scores-container">
+      <div class="score-container">
+        {{gameService.scores}}
+      </div>
+      <div class="best-container">
+        {{gameService.bestScore}}
+      </div>
+    </div>
+  </div>
+  <div class="above-game">
+    <p class="game-intro">
+      <!-- Join the tiles, get to
+      <strong>2048!</strong>
+      <a href="" class="how-to-play-link">How to play →</a>
+    </p> -->
+      <a (click)="gameService.resetGame()" class="restart-button">New game!</a>
+  </div>
+  <div class="game-container" [class.game-over]="gameService.theEnd">
+    <div class="game-message ">
+      <p>Game over!</p>
+      <div class="lower">
+        <a class="keep-playing-button"> Keep going </a>
+        <a class="retry-button"> Try again </a>
+      </div>
+    </div>
+
+    <div class="grid-container">
+      <div *ngFor="let row of size" class="grid-row">
+        <div *ngFor="let col of size" class="grid-cell">
+        </div>
+      </div>
+    </div>
+    <div class="tile-container">
+      <div *ngFor="let item of gameService.items"
+        class="tile tile-{{ item.value }} tile-position-{{ item.col+1 }}-{{item.row+1}}"
+        [class.tile-merged]="item.isMerged" [class.tile-new]="item.isNew">
+        <div class="tile-inner">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div>

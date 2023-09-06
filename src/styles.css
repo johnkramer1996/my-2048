@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}
+
+body {
+  margin-bottom: 80px;
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  src: url(./assets/ClearSans-Regular-webfont.woff);
+  font-weight: bold;
+}
